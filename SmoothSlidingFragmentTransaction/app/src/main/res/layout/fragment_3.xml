@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0000ff"
+    tools:context=".fragments.Fragment3">
+
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnMove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Move to Fragment 1"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="400dp"/>
+
+</FrameLayout>
