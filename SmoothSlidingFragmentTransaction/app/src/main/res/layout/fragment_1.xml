@@ -3,24 +3,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff0000"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Fragment1">
 
-    <TextView
-        android:id="@+id/tvText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/white"
-        android:textSize="20dp"/>
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnMove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Move to Fragment 2"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:background="#0000ff">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalanderPrevMonth"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:icon="@drawable/left_arrow"
+                app:iconSize="30sp"
+                app:iconTint="@color/white"
+                android:background="#00000000"/>
+
+            <TextView
+                android:id="@+id/tvCalanderMonth"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Month"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalanderNextMonth"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:icon="@drawable/right_arrow"
+                app:iconSize="30sp"
+                app:iconGravity="textEnd"
+                app:iconTint="@color/white"
+                android:background="#00000000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Sun"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Mon"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Tue"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Wed"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Thu"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Fri"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Sat"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCalanderDates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="7"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btnMove"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Move to Fragment 2"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="400dp"/>-->
+
+    </LinearLayout>
 
 </FrameLayout>
