@@ -21,13 +21,13 @@ public class Fragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_3, container, false);
 
-        btnMove = view.findViewById(R.id.btnMove);
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        btnMove.setOnClickListener(v -> {
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentContainerView, Fragment1.class, null);
-            fragmentTransaction.commit();
-        });
+//        btnMove = view.findViewById(R.id.btnMove);
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        btnMove.setOnClickListener(v -> {
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.fragmentContainerView, Fragment1.class, null);
+//            fragmentTransaction.commit();
+//        });
 
         return view;
     }
