@@ -1,4 +1,4 @@
-package com.example.smoothslidingfragmenttransaction.recyclerAdapters;
+package com.example.smoothslidingfragmenttransaction.adapters;
 
 import android.util.Log;
 import android.view.LayoutInflater;

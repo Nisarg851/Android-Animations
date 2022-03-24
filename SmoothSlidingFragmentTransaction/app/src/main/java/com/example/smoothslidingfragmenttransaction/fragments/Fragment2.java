@@ -1,43 +1,74 @@
 package com.example.smoothslidingfragmenttransaction.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.smoothslidingfragmenttransaction.R;
+import com.example.smoothslidingfragmenttransaction.adapters.WeekDayAndDateListAdapter;
+import com.example.smoothslidingfragmenttransaction.adapters.WeeklySlotsAdapter;
+
+import java.util.ArrayList;
 
 public class Fragment2 extends Fragment {
 
-    TextView tvText;
-    Button btnMove;
+    RecyclerView rvWeekDaysContainer, rvWeeklySlots;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_2, container, false);
-        tvText = view.findViewById(R.id.tvText);
-        btnMove = view.findViewById(R.id.btnMove);
+        initilizeControls(view);
+        initilizeDayRecyclerView(container);
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-        String[] DateTimeMonthBundle = this.getArguments().getStringArray("DateTimeMonthBundle");
-        if(DateTimeMonthBundle!=null){
-            String recievedDate = DateTimeMonthBundle[0]+"/"+DateTimeMonthBundle[1]+"/"+DateTimeMonthBundle[2];
-            tvText.setText(recievedDate);
-        }
-        btnMove.setOnClickListener(v -> {
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentContainerView, Fragment3.class, null);
-            fragmentTransaction.commit();
-        });
+        ArrayList<String> weeklySlotData = getWeekSlotsData();
+        initilizeWeeklySlotRecyclerView(weeklySlotData);
 
         return view;
+    }
+
+    private void initilizeWeeklySlotRecyclerView(ArrayList<String> weeklySlotData) {
+        WeeklySlotsAdapter weeklySlotsAdapter = new WeeklySlotsAdapter(weeklySlotData);
+        rvWeeklySlots.setAdapter(weeklySlotsAdapter);
+    }
+
+    private void initilizeControls(View view) {
+        rvWeekDaysContainer = view.findViewById(R.id.rvWeekDaysContainer);
+        rvWeeklySlots = view.findViewById(R.id.rvWeeklySlots);
+    }
+
+    private void initilizeDayRecyclerView(ViewGroup container) {
+        // Set Horizontal LinearLayout
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        rvWeekDaysContainer.setLayoutManager(layoutManager);
+
+        // Set Divider in Recycler View
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(container.getContext(), DividerItemDecoration.HORIZONTAL);
+//        rvWeekDaysContainer.addItemDecoration(dividerItemDecoration);
+
+        // Set Adapter
+        WeekDayAndDateListAdapter weekDayAndDateListAdapter = new WeekDayAndDateListAdapter();
+        rvWeekDaysContainer.setAdapter(weekDayAndDateListAdapter);
+    }
+
+    private ArrayList<String> getWeekSlotsData(){
+        ArrayList<String> data = new ArrayList<String>();
+
+        int daysInWeek = 7;
+        int slotsInADay = 12;
+        for(int slot=1; slot<=(daysInWeek*slotsInADay); slot++){
+            data.add("");
+        }
+
+        return data;
     }
 }
