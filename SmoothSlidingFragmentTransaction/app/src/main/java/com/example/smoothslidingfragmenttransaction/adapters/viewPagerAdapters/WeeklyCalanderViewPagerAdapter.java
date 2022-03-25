@@ -13,7 +13,7 @@ public class WeeklyCalanderViewPagerAdapter extends FragmentStateAdapter {
     }
 
     public Fragment createFragment(int position) {
-        return new Fragment2();
+        return new Fragment2(1, 31);
     }
 
     @Override

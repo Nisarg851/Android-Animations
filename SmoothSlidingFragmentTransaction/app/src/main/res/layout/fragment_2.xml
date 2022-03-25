@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="7"
+        app:spanCount="8"
         android:layout_marginTop="2dp"
         android:background="#DFDEDE"
         app:layout_constraintBottom_toBottomOf="parent"
